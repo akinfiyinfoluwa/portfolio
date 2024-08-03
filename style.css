@@ -271,7 +271,7 @@ section {
   overflow: hidden;
   object-fit: cover;
   gap: 2em;
-  padding: 3em;
+  padding: 1em;
   color: white;
   cursor: pointer;
   transition: 0.3s ease-in-out;
@@ -391,6 +391,9 @@ footer {
 @media (max-width:968px) {
   section {
     padding: 8em 15%;
+  }
+  .col-box span {
+    font-size: 0.8em;
   }
   nav .btn {
     display: none;
