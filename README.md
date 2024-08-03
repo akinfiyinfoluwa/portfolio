@@ -22,7 +22,7 @@ This is a personal portfolio website showcasing my skills, projects, and experie
 Navigate through the different sections using the menu. Click on project cards to view more details.
 
 ## Contact
-For any inquiries, please reach out to [your-email@example.com](mailto:your-email@example.com)
+For any inquiries, please reach out to [akinfiyinfoluwaemma@gmail.com](mailto:akinfiyinfoluwaemma@gmail.com)
 
 ## License
 This project is licensed under the MIT License.
