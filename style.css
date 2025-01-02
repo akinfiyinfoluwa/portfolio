@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +6,9 @@
     text-decoration: none;
     list-style: none;
     scroll-behavior: smooth;
-    font-family: "monospace";
-    line-height: 1.7em;
+    font-family: "Roboto Mono", serif;
+
+    line-height: 2em;
 }
 :root {
     --background: #24273a;
