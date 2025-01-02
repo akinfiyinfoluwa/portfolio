@@ -11,8 +11,114 @@
       rel="stylesheet"
     />
     <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <style>
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #181926;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .preloader.fade-out {
+        opacity: 0;
+      }
+
+      .loader {
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+
+      .shape {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      .triangle1 {
+        border-width: 0 25px 43.3px 25px;
+        border-color: transparent transparent #fff transparent;
+        animation: moveTriangle1 2s infinite;
+      }
+
+      .triangle2 {
+        border-width: 43.3px 25px 0 25px;
+        border-color: #fff transparent transparent transparent;
+        animation: moveTriangle2 2s infinite;
+      }
+
+      .circle {
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        animation: moveCircle 2s infinite;
+      }
+
+      @keyframes moveTriangle1 {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(100px, 100px) rotate(120deg); }
+        66% { transform: translate(-100px, 50px) rotate(240deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+      }
+
+      @keyframes moveTriangle2 {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(-100px, -50px) rotate(120deg); }
+        66% { transform: translate(100px, -100px) rotate(240deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+      }
+
+      @keyframes moveCircle {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(50px, -50px) scale(0.5); }
+        100% { transform: translate(0, 0) scale(1); }
+      }
+    </style>
+    <script>
+      // Disable console output
+      console.log = function() {};
+      console.warn = function() {};
+      console.error = function() {};
+
+      // Disable right click
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+      // Disable keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey || e.keyCode == 123) {
+          e.preventDefault();
+        }
+      });
+
+      window.addEventListener('load', function() {
+        const preloader = document.querySelector('.preloader');
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 500);
+        }, 1500);
+      });
+    </script>
   </head>
   <body>
+    <div class="preloader">
+      <div class="loader">
+        <div class="shape triangle1"></div>
+        <div class="shape triangle2"></div>
+        <div class="shape circle"></div>
+      </div>
+    </div>
+
     <nav>
       <a href="#" class="logo"><span>Nuel</span></a>
 
@@ -25,15 +131,13 @@
       </ul>
 
       <i class='bx bx-menu-alt-right' id="menu"></i>
-      
-
 
       <a href="#contact" class="btn">Contact Me</a>
     </nav>
 
      <section id="home">
      <img src="image.JPG" alt="myimage">
-    
+
      <div class="info-box">
       <h1><span>Hello I'm Nuel</span></h1>
       <h3><span>Full Stack Engineer</span> based in Nigeria</h3>
@@ -44,7 +148,7 @@
         My experience spans across various programming languages and frameworks,
         allowing me to tackle diverse challenges in both front-end, back-end,and mobile development.      </p>
      </div>
-      
+
      <div class="btn-box">
       <div class="btn">Hire</div>
       <div class="btn">Contact Me</div>
@@ -54,14 +158,14 @@
   <div class="about-box">
      <div class="about-info">
       <h1><span>About Me</span></h1>
-      
+
       <p>
-        Hello! I'm a passionate developer with a keen interest 
-        in creating user-friendly and and solution-oriented products. 
+        Hello! I'm a passionate developer with a keen interest
+        in creating user-friendly and and solution-oriented products.
         With a background in humanities and years of hands-on
-         experience,I specialize in JavaScript development for frontend, 
-        backend ,  and mobile applications. I'm always eager to learn 
-        new technologies and stay up-to-date with the latest trends in 
+         experience,I specialize in JavaScript development for frontend,
+        backend ,  and mobile applications. I'm always eager to learn
+        new technologies and stay up-to-date with the latest trends in
         JavaScript ecosystems. When I am not coding, I am reading poetry
          and having a cup of coffee.</p>
         </div>
@@ -69,18 +173,24 @@
          <h2><Span>Skills</Span></h2>
          <div class="skills">
           <ul>
-            <li><i class='bx bx-chevron-right' ></i><Span>HTML</Span></li>
-            <li><i class='bx bx-chevron-right' ></i><Span>CSS</Span></li>
-            <li><i class='bx bx-chevron-right' ></i><Span>JavaScript</Span></li>
-            <li><i class='bx bx-chevron-right' ></i><Span>WordPress</Span></li>
-           
+            <li><i class='bx bxl-html5'></i><Span>HTML</Span></li>
+            <li><i class='bx bxl-css3'></i><Span>CSS</Span></li>
+            <li><i class='bx bxl-javascript'></i><Span>JavaScript</Span></li>
+            <li><i class='bx bxl-wordpress'></i><Span>WordPress</Span></li>
+            <li><i class='bx bxl-python'></i><Span>Python Django</Span></li>
+            <li><i class='bx bxl-docker'></i><Span>Docker</Span></li>
+              <li><i class='bx bxl-tux'></i><Span>Linux</Span></li>
           </ul>
 
           <ul>
-            <li><i class='bx bx-chevron-right' ></i><Span>React</Span></li>
-            <li><i class='bx bx-chevron-right' ></i><Span>React Native</Span></li>
-            <li><i class='bx bx-chevron-right' ></i><Span>Next Js</Span></li>
-            <li><i class='bx bx-chevron-right' ></i><Span>Node Js</Span></li>
+            <li><i class='bx bxl-react'></i><Span>React</Span></li>
+            <li><i class='bx bxl-react'></i><Span>React Native</Span></li>
+            <li><i class='bx bxl-nodejs'></i><Span>Next Js</Span></li>
+            <li><i class='bx bxl-nodejs'></i><Span>Node Js</Span></li>
+            <li><i class='bx bxl-nodejs'></i><Span>Nest Js</Span></li>
+            <li><i class='bx bx-data'></i><Span>PostgreSQL</Span></li>
+            <li><i class='bx bx-terminal'></i><Span>Bash Scripting</Span></li>
+
           </ul>
 
          </div>
@@ -91,22 +201,22 @@
    <section id="services">
     <h1 class="header"><span>Services</span></h1>
        <div class="services-container">
-       
+
         <div class="box">
           <h1><span>Web Design</span></h1>
-         <p> 
-          I specialize in creating visually appealing and 
-          user-friendly websites that meet your business needs. 
-          My services include web design, development, and optimization 
-          to ensure your online presence stands out. With a focus on responsive 
-          layouts and modern technologies, I deliver custom solutions tailored 
+         <p>
+          I specialize in creating visually appealing and
+          user-friendly websites that meet your business needs.
+          My services include web design, development, and optimization
+          to ensure your online presence stands out. With a focus on responsive
+          layouts and modern technologies, I deliver custom solutions tailored
           to your specific requirements.           </p>
           <img src="web-design.jpg" alt="">
       </div>
 
       <div class="box">
           <h1><span>Web App Development</span></h1>
-         <p> 
+         <p>
           I create eye-catching, easy-to-use websites
           that boost your business online. I offer
           custom web design and development, optimized
@@ -117,12 +227,12 @@
 
       <div class="box">
           <h1><span>Mobile Applications</span></h1>
-         <p> 
+         <p>
           I create mobile applications with React Native.
           I offer custom app design and development, optimized
           for iOS and Android devices. Using the latest tech,
           I build responsive apps that perfectly
-          fit your needs and solve your business solutions </p>          
+          fit your needs and solve your business solutions </p>
           <img src="mobile.jpg" alt="Mobile app development">
       </div>
 
@@ -132,52 +242,72 @@
    <section id="Projects">
     <h1 class="header"><span>Projects</span></h1>
        <div class="services-container">
-       
+
         <div class="box">
           <h1><span>Algolog Website</span></h1>
-         <p> 
-          I crafted the landing page for Algolog, where i currently work as a fullstack engineer    <a href="https://www.algolog.co/">See Project</a>    </p>
+         <p>
+          I crafted the landing page for Algolog, where i currently work as a fullstack engineer   <a href="https://www.algolog.co/">See Project</a></p>
+          <div class="tech-stack">
+            <i class='bx bxl-html5'></i>
+            <i class='bx bxl-tailwind-css'></i>
+          </div>
           <img src="algolog.jpg" alt="">
       </div>
 
       <div class="box">
           <h1><span>The WinifredAkin Ecommerce website</span></h1>
-         <p> 
-          I created this for a fashion design firm in Rivers <a href="http://thewinifredakin.com.ng/">See Project</a></p>          <img src="fashion.jpg" alt="">
+         <p>
+          I created this for a fashion design firm in Rivers <a href="http://thewinifredakin.com.ng/">See Project</a></p>
+          <div class="tech-stack">
+            <i class='bx bxl-wordpress'></i>
+          </div>
+          <img src="fashion.jpg" alt="">
       </div>
 
       <div class="box">
           <h1><span>Measure Me</span></h1>
-         <P>Still in the works - an application to help fashion designers manage their products </P> 
+         <P>Still in the works - an application to help fashion designers manage their products</P>
+         <div class="tech-stack">
+            <i class='bx bxl-react'></i>
+            <i class='bx bxl-nodejs'></i>
+          </div>
           <img src="measureme.jpg" alt="Mobile app development">
+      </div>
+
+      <div class="box">
+          <h1><span>AI Content Generator</span></h1>
+         <P>An AI powered content generation tool <a href="https://algologai.vercel.app">See Project</a></P>
+         <div class="tech-stack">
+            <i class='bx bxl-react'></i>
+            <i class='bx bxl-nodejs'></i>
+          </div>
+          <img src="https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QUl8ZW58MHx8MHx8fDA%3D" alt="AI Content Generator">
       </div>
 
        </div>
    </section>
 <section id="contact">
-   
+
   <h1 class="header"><span>Contact</span></h1>
-    <form action=" ">
-     
+  <form>
       <div class="input-box">
         <span>Full Name</span>
-        <input type="text" placeholder="Enter your full name">
+        <input type="text" id="fullName" placeholder="Enter your full name">
       </div>
 
     <div class="input-box">
       <span>Email Address</span>
-      <input type="text" placeholder="Enter your Email address">
+      <input type="text" id="emailAddress" placeholder="Enter your Email address">
     </div>
-
 
   <div class="input-box">
     <span>Message</span>
-    <input type="text" placeholder="Enter your message">
+    <input type="text" id="message" placeholder="Enter your message">
   </div>
 
-  <div class="btn">
+  <button class="btn" href="mailto:akinfiyinfoluwaemma@gmail.com?subject=Contact Form&body=Hi, %0D%0A%0D%0AName: [Fill Name]%0D%0AEmail: [Fill Email]%0D%0A%0D%0AMessage: [Fill Message]" onclick="this.href = this.href.replace('[Fill Name]', document.getElementById('fullName').value).replace('[Fill Email]', document.getElementById('emailAddress').value).replace('[Fill Message]', document.getElementById('message').value);">
     Submit
-  </div>
+    </button>
 </form>
 </section>
 
@@ -202,21 +332,19 @@
   <div class="col-right">
     <span>About my services</span>
     <p>
-      In general, I am a problem solver and 
-      I develop innovative products that address 
-      complex challenges and provide effective solutions 
-      to real-world issues. My passion lies in identifying 
-      pain points and creating cutting-edge technologies 
-      that not only solve problems but also enhance efficiency 
+      In general, I am a problem solver and
+      I develop innovative products that address
+      complex challenges and provide effective solutions
+      to real-world issues. My passion lies in identifying
+      pain points and creating cutting-edge technologies
+      that not only solve problems but also enhance efficiency
       and improve the overall quality of life for users.    </p>
 
       <div class="social-icons">
      <span>   </span>
      <span> <a href="hhttps://www.linkedin.com/in/emmanuelakinademola/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B4e5Afc3hSEGgc7OfCr4wuQ%3D%3D" style="outline: none;"><i class='bx bxl-linkedin-square' ></i></span>
-     
+
       <span> <a href="https://www.instagram.com/akinfiyinfolu/" style="outline: none;">  <i class='bx bxl-instagram-alt' ></i></span>
-
-
 
         <span> <a href="https://web.facebook.com/emmanuel.akinademola/" style="outline: none;"><i class='bx bxl-facebook-circle' ></i></span>
 
@@ -224,12 +352,10 @@
 
         <span> <a href="https://wa.link/eydpo2" style="outline: none;"><i class='bx bxl-whatsapp-square' ></i></a> </span>
 
-
       </div>
   </div>
 
 </footer>
-
 
     <script src="script.js"></script>
   </body>
